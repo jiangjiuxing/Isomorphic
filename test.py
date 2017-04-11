@@ -2,23 +2,28 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import networkx.algorithms.isomorphism as iso
 
-LTAcore = open("LTAcore.adjlist", 'rb')
-LTA = open("LTA.adjlist", 'rb')
-OWE = open("OWE.adjlist", 'rb')
-M = open("M.adjlist", 'rb')
+LTAcore = open("graph/core/LTAcore.adjlist", 'rb')
+UFIcore = open("graph/core/UFIcore.adjlist", 'rb')
+
+LTA = open("graph/LTA.adjlist", 'rb')
+OWE = open("graph/OWE.adjlist", 'rb')
+
+M = open("graph/M.adjlist", 'rb')
 
 LTAcore=nx.read_adjlist(LTAcore)
+UFIcore=nx.read_adjlist(UFIcore)
+
 OWE=nx.read_adjlist(OWE)
 LTA = nx.read_adjlist(LTA)
+
 M = nx.read_adjlist(M)
 
-GM = iso.GraphMatcher(LTA,LTAcore)
-print(GM.is_isomorphic())
+GM = iso.GraphMatcher(M,LTAcore)
+print GM.subgraph_is_isomorphic()
 
-# print(nx.is_isomorphic(LTAcore,LTA))
 
 # nx.draw(LTAcore)
 # nx.draw_random(LTAcore)
-# nx.draw_circular(LTAcore)
+# nx.draw_circular(M)
 # nx.draw_spectral(LTAcore)
 # plt.show()
