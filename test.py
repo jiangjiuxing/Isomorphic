@@ -12,10 +12,13 @@ OWE=nx.read_adjlist(OWE)
 LTA = nx.read_adjlist(LTA)
 M = nx.read_adjlist(M)
 
-print(nx.is_isomorphic(LTAcore,LTA))
+GM = iso.GraphMatcher(LTA,LTAcore)
+print(GM.is_isomorphic())
 
-# nx.draw(G)
-# nx.draw_random(G)
-# nx.draw_circular(G)
+# print(nx.is_isomorphic(LTAcore,LTA))
+
+# nx.draw(LTAcore)
+# nx.draw_random(LTAcore)
+# nx.draw_circular(LTAcore)
 # nx.draw_spectral(LTAcore)
 # plt.show()
