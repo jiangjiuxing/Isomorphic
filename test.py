@@ -19,7 +19,7 @@ LTA = nx.read_adjlist(LTA)
 M = nx.read_adjlist(M)
 
 GM = iso.GraphMatcher(M,LTAcore)
-print GM.subgraph_is_isomorphic()
+print(GM.subgraph_is_isomorphic())
 
 
 # nx.draw(LTAcore)
