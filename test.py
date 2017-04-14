@@ -2,34 +2,29 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import networkx.algorithms.isomorphism as iso
 
-LTAcore = open("graph/core/LTAcore.adjlist", 'rb')
-UFIcore = open("graph/core/UFIcore.adjlist", 'rb')
+LTAcore = nx.line_graph(nx.read_adjlist("graph/core/LTAcore.adjlist"))
+# LTA = nx.line_graph(nx.read_adjlist("graph/LTA.adjlist"))
+#
+FAUcore = nx.line_graph(nx.read_adjlist("graph/core/FAUcore.adjlist"))
+FAU = nx.line_graph(nx.read_adjlist("graph/FAU.adjlist"))
 
-EMTcore = open("graph/core/EMT.adjlist", 'rb')
-EMT01 = open("graph/core/EMT01.adjlist", 'rb')
-EMT = open("graph/EMT.adjlist", 'rb')
+UFIcore = nx.line_graph(nx.read_adjlist("graph/core/UFIcore.adjlist"))
+# UFI = nx.line_graph(nx.read_adjlist("graph/UFI.adjlist"))
 
-LTA = open("graph/LTA.adjlist", 'rb')
-OWE = open("graph/OWE.adjlist", 'rb')
-UFI = open("graph/UFI.adjlist", 'rb')
+# EMTcore = nx.line_graph(nx.read_adjlist("graph/core/EMT.adjlist"))
+# EMT = nx.line_graph(nx.read_adjlist("graph/EMT.adjlist"))
 
-M = open("graph/M2.adjlist", 'rb')
+M = nx.line_graph(nx.read_adjlist("graph/M.adjlist"))
 
-LTAcore = nx.read_adjlist(LTAcore)
-UFIcore = nx.read_adjlist(UFIcore)
-EMTcore = nx.read_adjlist(EMTcore)
+######
+TON = nx.line_graph(nx.read_adjlist("graph/TON.adjlist"))
+MTT = nx.line_graph(nx.read_adjlist("graph/MTT.adjlist"))
 
-OWE = nx.read_adjlist(OWE)
-LTA = nx.read_adjlist(LTA)
-UFI = nx.read_adjlist(UFI)
-EMT = nx.read_adjlist(EMT)
-EMT01 = nx.read_adjlist(EMT01)
+GM = iso.GraphMatcher(M,FAUcore)
 
-M = nx.read_adjlist(M)
-
-GM = iso.GraphMatcher(EMT,EMT01)
 print(GM.subgraph_is_isomorphic())
 
+# print(list(LTAcore.edges()))
 
 # nx.draw(UFI)
 # nx.draw_random(UFI)
