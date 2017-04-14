@@ -27,7 +27,7 @@ EMT01 = nx.read_adjlist(EMT01)
 
 M = nx.read_adjlist(M)
 
-GM = iso.GraphMatcher(EMTcore,EMT01)
+GM = iso.GraphMatcher(EMT,EMT01)
 print(GM.subgraph_is_isomorphic())
 
 
